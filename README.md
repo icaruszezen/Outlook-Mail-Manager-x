@@ -39,7 +39,7 @@
 ## 项目结构
 
 ```
-outlook-mail-manager/
+outlook-mail-manager-x/
 ├── server/                  # 后端服务
 │   └── src/
 │       ├── config/          # 环境配置
