@@ -113,6 +113,44 @@ npm start
 
 访问 http://localhost:3000 即可使用。
 
+### Docker 部署
+
+项目在每次推送提交后会通过 GitHub Actions 自动构建并发布 Docker 镜像到 GHCR：`ghcr.io/icaruszezen/outlook-mail-manager-x:latest`。
+
+#### 前置要求
+
+- 安装 Docker Engine
+- 安装 Docker Compose Plugin（使用 `docker compose` 命令）
+
+如果仓库的 GHCR 包为私有镜像，请先登录：
+
+```bash
+docker login ghcr.io
+```
+
+#### 启动服务
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+启动后访问 http://localhost:3000 即可使用。
+
+#### 更新镜像
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+#### 数据持久化与配置
+
+- 数据目录默认挂载为 `./data:/app/server/data`
+- 服务监听端口为 `3000`
+- 如需启用访问密码，请编辑 `docker-compose.yml` 中的 `ACCESS_PASSWORD`
+- 如果你修改了镜像标签或仓库地址，请同步更新 `docker-compose.yml`
+
 ## API 端点
 
 ### 账户 `/api/accounts`

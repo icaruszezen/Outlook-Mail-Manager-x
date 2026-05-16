@@ -2,7 +2,7 @@ version: '3'
 
 services:
   outlook-manager:
-    build: .
+    image: ghcr.io/icaruszezen/outlook-mail-manager-x:latest
     container_name: outlook-manager
     restart: unless-stopped
     ports:
